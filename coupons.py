@@ -93,7 +93,10 @@ for i in range(1000):
     std = np.std(times)
     stats = [datetime.fromtimestamp(t) for t in times]
     stats = [conv.hour + (conv.minute / 60) for conv in stats]
-    avgs.append(np.mean(stats))
+    mean = np.mean(stats)
+    if i % 10 == 0 and avgs:
+        print('current mean:', np.mean(avgs))
+    avgs.append(np.mean(mean))
 
 
 # In[204]:
